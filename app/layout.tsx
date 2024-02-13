@@ -8,6 +8,8 @@ import ModalProvider from '@/providers/ModalProvider'
 import ToasterProvider from '@/providers/ToasterProvider'
 import getSongsByUserId from '@/action/getSongsByUserId'
 import Player from '@/components/Player'
+import RightSideBar from '@/components/RightSideBar'
+
 
 
 const figtree = Figtree({ subsets: ['latin'] })
@@ -33,9 +35,9 @@ export default async function RootLayout({
         <SupabaseProvider>
           <UserProvider>
             <ModalProvider/>
-            <Sidebar songs={userSongs}>
-              {children}
-            </Sidebar>
+                <Sidebar songs={userSongs}>
+                {children}
+                </Sidebar>
             <Player/>
           </UserProvider>
         </SupabaseProvider>

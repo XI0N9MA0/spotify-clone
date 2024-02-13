@@ -21,10 +21,11 @@ const AuthModal = () => {
     }, [session, router, onClose]);
 
     const onChange = (open:boolean) => {
-      if(!isOpen){
+      if(isOpen){
         onClose();
       }
     }
+    
     return(
         <Modal 
             title="Welcome Back"

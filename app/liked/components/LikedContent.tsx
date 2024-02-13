@@ -3,6 +3,7 @@
 import LikeButton from "@/components/LikeButton";
 import { MediaItem } from "@/components/MediaItem";
 import useOnPlay from "@/hooks/useOnPlay";
+import useRightSidebar from "@/hooks/useRightSideBar";
 import { useUser } from "@/hooks/useUser";
 import { Song } from "@/types";
 import { useRouter } from "next/navigation";
@@ -17,6 +18,7 @@ const LikedContent: React.FC<LikedContentProps> = ({songs}) => {
   const onPlay = useOnPlay(songs);
   const router = useRouter();
   const {isLoading, user} = useUser();
+  const {onOpen} = useRightSidebar();
 
   useEffect(()=>{
     if(!isLoading && !user){
@@ -53,7 +55,7 @@ const LikedContent: React.FC<LikedContentProps> = ({songs}) => {
         >
           <div className="flex-1">
             <MediaItem
-            onClick={(id: string)=>onPlay(id)}
+            onClick={(id: string)=>{onPlay(id); onOpen()}}
             data={song}
             />
           </div>

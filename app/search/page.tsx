@@ -16,7 +16,7 @@ const Search = async ({searchParams}: SearchProps) => {
   const songs = await getSongsByTitle(searchParams.title);
   return (
     <div
-    className="
+    className="              
     bg-neutral-900
     rounded-lg
     h-full
